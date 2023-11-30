@@ -1,0 +1,139 @@
+html{
+    font-size: 18px;
+}
+body{
+    background-color: #052529;
+}
+.logo {
+    width: 10%;
+    height: 10%;
+}
+  
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    justify-content: space-around;
+    border: 2px solid #00000044;
+    border-radius: 7px;
+    padding: px;
+    border-radius: 20px;
+    position: fixed;
+    background-color: #041d20;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+#headerr{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    justify-content: space-around;
+    border: 2px solid #00000044;
+    border-radius: 5px;
+    min-height: 50px;
+
+}
+#header a{
+    font-size: 2rem;
+    color: rgb(249, 249, 249);
+
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    justify-items: center;
+    align-items: center; 
+    padding-top: 120px;
+}
+.grid-item {
+    width: calc(33.33% + 200px);
+    height: 790px;
+    background-color: #08393f8a;
+    padding: 20px;
+    margin-bottom: 10px;
+    margin: 20px auto;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(67, 67, 67, 0.6);
+    
+}
+
+.grid-item a{
+    color: #ffffff;
+}
+  
+.grid-item img {
+    border-radius: 10px;
+    max-width: 100%;
+    max-height: 400px;
+    margin: auto;
+    display: grid;
+    text-align: center;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+.grid-item h3 {
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+  
+.grid-item p {
+    margin-top: 100px;
+    font-size: 1rem;
+    color: #ffffff;
+    text-align: left;
+}
+.grid-item span{
+    font-size: 1rem;
+    color: #ffffff;
+    text-align: left;
+}
+.grid-item input{
+    margin-top: 20px;
+}
+input{
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 0 10px;
+    }
+::placeholder{
+    color: #e5e5e594;
+}
+button{
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: rgba(255,255,255,0.07);
+  padding: 10px 20px;
+  border-color: #868697c8;
+  margin: 5px;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.185);
+  align-self: flex-end;
+}
+  
+@media (max-width: 768px) {
+    .grid-item {
+      width: calc(50% - 20px);
+    }
+}
+  
+@media (max-width: 480px) {
+    .grid-item {
+      width: 100%;
+    }
+}
+
+.btnp{
+    float: right;
+}
+.btna{
+    float: left;
+}

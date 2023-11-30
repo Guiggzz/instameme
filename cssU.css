@@ -1,0 +1,110 @@
+html{
+    font-size: 18px;
+}
+body{
+    background-color: #052529;
+}
+.logo {
+    width: 10%;
+    height: 10%;
+}
+  
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    justify-content: space-around;
+    border: 2px solid #00000044;
+    border-radius: 7px;
+    border-radius: 5px;
+    position: fixed;
+    background-color: #041d20;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+#headerr{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    justify-content: space-around;
+    border-radius: 5px;
+    min-height: 100px;
+    color: #191f20;
+
+}
+
+#header a{
+    font-size: 2rem;
+    color: rgb(249, 249, 249);
+
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* grid-template-rows: repeat(3, 1fr); */
+    grid-gap: 60px;
+    text-align: center;
+    width: 70%;
+    margin: auto;
+  }
+input {
+    background-color: #485456;
+    color: #ffffff;
+}
+.grid-item {
+    width: 100%;
+    background-color: #08393f;
+    border-radius: 10px;
+    padding: 20px;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+}
+.grid-item img {
+    width: 100%;
+    height: auto;
+    flex-grow: 1;
+}
+.btn{
+    display:flex; 
+    justify-content:space-between;
+    margin-top: 20px;
+
+}
+button{
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #485456;
+    padding: 10px 20px;
+    border-color: #868697c8;
+    margin: 5px;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.185);
+    align-self: flex-end;
+}
+@media (max-width: 1500px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 60px;
+      }
+    .btna, .btnp{
+        font-size: 80%;
+        padding: 5px 10px;
+    }
+}
+  
+@media (max-width: 480px) {
+    .grid-item {
+      width: 100%;
+    }
+    .btna{
+        height: 1px;
+        width: 1px;
+    }
+}
