@@ -65,7 +65,6 @@ if ($result_posts->num_rows > 0) {
       while ($com_row = $com_result->fetch_assoc()) {
         echo "<p><strong>" . $com_row['user_pseudo'] . ":</strong> " . $com_row['message'] . "</p>";
       }
-      // Create a button to view all comments
       echo "<form method='post' action='creacom.php'>";
       echo "<input type='hidden' name='post_id' value='" . $row_post['id'] . "'>";
       echo "<textarea name='commentaire' placeholder='Ajouter un commentaire'></textarea>";
