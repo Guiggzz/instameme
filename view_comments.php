@@ -10,7 +10,7 @@
 <body>
     <?php
     require_once 'header.php';
-
+    session_start();
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -46,7 +46,7 @@
             if ($likes_result->num_rows > 0) {
                 $likes_row = $likes_result->fetch_assoc();
                 $like_count = $likes_row['like_count'];
-                echo "<p>Likes: $like_count</p>";
+                echo "<p><b>&#x2661; " . $like_count . "</b></p>";
             } else {
                 echo "<p>Pas de likes pour ce post.</p>";
             }
@@ -69,6 +69,11 @@
             } else {
                 echo "<p>Pas de commentaires.</p>";
             }
+            echo "<form method='post' action='creacom.php'>";
+            echo "<input type='hidden' name='post_id' value='" . $row_post['id'] . "'>";
+            echo "<textarea name='commentaire' placeholder='Ajouter un commentaire'></textarea>";
+            echo "<input type='submit' value='Envoyer'>";
+            echo "</form>";
             echo "</div>"; // Fermeture de post-details
             echo "</div>"; // Fermeture de post-container
         } else {

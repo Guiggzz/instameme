@@ -144,14 +144,15 @@ button {
     color: black;
     border: solid #000000 1px;
     justify-items: center;
-    align-items: center;
     text-align: center;
+    border-radius: 5px;
 }
 
 .post-container img {
     margin-right: 20px;
     max-width: 640px;
     max-height: 340px;
+    border-radius: 5px;
 }
 
 .post-details {
@@ -167,6 +168,39 @@ button {
     overflow-y: auto;
     border: 1px solid #ccc;
     padding: 10px;
+    border-radius: 5px;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination {
+    text-align: center;
+    padding: 40px;
+}
+
+.pagination a {
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    margin-right: 5px;
+}
+
+.pagination a:hover {
+    background-color: #ff0000;
+}
+
+form {
+    align-items: center;
+    justify-content: space-around;
+    border: 2px solid #00000044;
+    border-radius: 5px;
+    min-height: 50px;
+    text-align: center;
 }
 
 @media (max-width: 768px) {
