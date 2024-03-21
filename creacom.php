@@ -38,7 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Erreur lors de l'ajout du commentaire.";
             }
 
-            // Fermer l'instruction
             $stmt->close();
         }
     } else {

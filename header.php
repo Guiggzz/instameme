@@ -22,9 +22,10 @@ session_start();
             <?php
             if (isset($_SESSION["connecte"])) {
                 if ($_SESSION["connecte"] == True) {
-                    echo '<a href="Creer.php">Créer</a>';
+                    echo '<a href="Creerpos.php">Créer</a>';
                     echo '<a href="deco.php">Deconnexion</a>';
                     echo '<a href="user.php?user_id=' . $_SESSION['id_utilisateur'] . '">Profil</a>';
+                    echo isset($_SESSION['pseudo']) ? '<a>Bonjour ' . $_SESSION['pseudo'] . '</a>' : '';
                 } else {
                     echo '<a href="connexion.php">Connexion</a>';
                 }

@@ -1,6 +1,5 @@
 <?php
 require_once 'header.php'; // Si header.php contient votre en-tête de page, sinon, vous pouvez le remplacer par son contenu directement.
-session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -11,6 +10,30 @@ $conn = new mysqli($servername, $username, $password, $database);
 
 if ($conn->connect_error) {
   die("La connexion a échoué : " . $conn->connect_error);
+}
+
+// Vérifier si l'utilisateur est connecté
+session_start();
+if (isset($_SESSION['user_id'])) {
+  $user_id = $_SESSION['user_id']; // Récupérer l'ID de l'utilisateur connecté
+}
+
+// Traitement des actions POST (like et commentaire)
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (isset($_POST['like_post'])) {
+    if (isset($user_id)) { // Vérifier si l'utilisateur est connecté
+      $post_id = $_POST['post_id'];
+      $sql_like = "INSERT INTO likes (id_contenu, id_utilisateur) VALUES ('$post_id', '$user_id')";
+      if ($conn->query($sql_like) === TRUE) {
+        // Like ajouté avec succès
+        echo "Post liké avec succès.";
+      } else {
+        echo "Erreur lors du like : " . $conn->error;
+      }
+    } else {
+      echo "Vous devez être connecté pour liker un post.";
+    }
+  }
 }
 
 // Pagination
@@ -46,7 +69,11 @@ if ($result_posts->num_rows > 0) {
     $likes_result = $conn->query($sql_likes);
     $likes_row = $likes_result->fetch_assoc();
     $like_count = $likes_row['like_count'];
-    echo "<p><b>&#x2661; " . $like_count . "</b></p>";
+    echo "<form method='post' action=''>";
+    echo "<input type='hidden' name='post_id' value='" . $row_post['id'] . "'>";
+    echo "<button type='submit' name='like_post'>Like</button>";
+    echo "<span>&#x2661; " . $like_count . "</span>";
+    echo "</form>";
 
     echo "<h2>" . $row_post["description"] . "</h2>";
 

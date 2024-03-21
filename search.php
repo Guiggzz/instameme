@@ -36,7 +36,7 @@ select id from utilisateurs where pseudo = $_POST['recherche']
         echo "<div class='grid-container'>";
         while ($row_post = $result_post->fetch_assoc()) {
             echo "<div class='grid-item'>";
-            echo "<h2><a href='?user_id={$row_post['id_utilisateur']}'>" . $row_post["pseudo"] . "</a></h2>";
+            echo "<h2><a href='user.php?user_id={$row_post['id_utilisateur']}'>" . $row_post["pseudo"] . "</a></h2>";
             echo "<img onclick=\"location.href='view_comments.php?post_id=" . $row_post['id'] . "'\" src='images/" . $row_post["chemin_image"] . "' alt='Image du post'>";
             echo "<p>" . $row_post["description"] . "</p>";
 

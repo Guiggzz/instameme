@@ -33,6 +33,7 @@
             $user = $result->fetch_assoc();
             $_SESSION['connecte'] = True;
             $_SESSION['id_utilisateur'] = $user['id'];
+            $_SESSION['pseudo'] = $user['pseudo'];
             header("Location: Page_accueil.php");
         } else {
             echo "Nom d'utilisateur ou mot de passe incorrect.";

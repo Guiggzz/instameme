@@ -1,3 +1,4 @@
+use function date;
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -25,7 +26,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pseudo = $_POST['username'];
         $password = md5($_POST['password']);
-        $dateinscription = date('d-m-Y h:i:s');
+        $dateinscription = date('Y-m-d H:i:s');
 
         $sql_check = "SELECT * FROM utilisateurs WHERE pseudo='$pseudo'";
         $result_check = $conn->query($sql_check);
