@@ -11,17 +11,7 @@
     <?php
     require_once 'header.php';
     session_start();
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "instameme";
-
-    $conn = new mysqli($servername, $username, $password, $database);
-
-    if ($conn->connect_error) {
-        die("La connexion a échoué : " . $conn->connect_error);
-    }
-
+    require_once 'db.php';
     if (isset($_GET['user_id']) && !empty($_GET['user_id'])) {
         $user_id = $_GET['user_id'];
 

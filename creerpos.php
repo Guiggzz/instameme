@@ -1,11 +1,6 @@
 <?php
 require_once 'header.php';
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "instameme";
-
-$conn = new mysqli($servername, $username, $password, $database);
+require_once 'db.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $description = $_POST['description'];
     $image = $_FILES['image'];

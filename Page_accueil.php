@@ -1,40 +1,6 @@
 <?php
 require_once 'header.php'; // Si header.php contient votre en-tête de page, sinon, vous pouvez le remplacer par son contenu directement.
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "instameme";
-
-// Créer une connexion
-$conn = new mysqli($servername, $username, $password, $database);
-
-if ($conn->connect_error) {
-  die("La connexion a échoué : " . $conn->connect_error);
-}
-
-// Vérifier si l'utilisateur est connecté
-session_start();
-if (isset($_SESSION['user_id'])) {
-  $user_id = $_SESSION['user_id']; // Récupérer l'ID de l'utilisateur connecté
-}
-
-// Traitement des actions POST (like et commentaire)
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (isset($_POST['like_post'])) {
-    if (isset($user_id)) { // Vérifier si l'utilisateur est connecté
-      $post_id = $_POST['post_id'];
-      $sql_like = "INSERT INTO likes (id_contenu, id_utilisateur) VALUES ('$post_id', '$user_id')";
-      if ($conn->query($sql_like) === TRUE) {
-        // Like ajouté avec succès
-        echo "Post liké avec succès.";
-      } else {
-        echo "Erreur lors du like : " . $conn->error;
-      }
-    } else {
-      echo "Vous devez être connecté pour liker un post.";
-    }
-  }
-}
+require_once 'db.php'; // Inclure le fichier de connexion à la base de données
 
 // Pagination
 $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
@@ -65,15 +31,12 @@ if ($result_posts->num_rows > 0) {
     echo "<h2 onclick=\"location.href='user.php?user_id=" . $row_post['id_utilisateur'] . "'\">" . $row_post["pseudo"] . "</h2>";
     echo "<img onclick=\"location.href='view_comments.php?post_id=" . $row_post['id'] . "'\"src='images/" . $row_post["chemin_image"] . "' alt='Image du post'>";
 
+    // Like functionality
     $sql_likes = "SELECT COUNT(*) AS like_count FROM likes WHERE id_contenu =" . $row_post['id'] . ";";
     $likes_result = $conn->query($sql_likes);
     $likes_row = $likes_result->fetch_assoc();
     $like_count = $likes_row['like_count'];
-    echo "<form method='post' action=''>";
-    echo "<input type='hidden' name='post_id' value='" . $row_post['id'] . "'>";
-    echo "<button type='submit' name='like_post'>Like</button>";
-    echo "<span>&#x2661; " . $like_count . "</span>";
-    echo "</form>";
+    echo "<p><b>&#x2661; " . $like_count . "</b></p>";
 
     echo "<h2>" . $row_post["description"] . "</h2>";
 
@@ -102,6 +65,11 @@ if ($result_posts->num_rows > 0) {
       echo "<p>Pas de commentaires.</p>";
     }
 
+    echo "<form method='post' action='Page_accueil.php'>";
+    echo "<input type='hidden' name='post_id' value='" . $row_post['id'] . "'>";
+    echo "<input type='submit' name='like' value='Like'>";
+    echo "</form>";
+
     echo "</div>";
   }
   echo "</div>";
@@ -114,6 +82,12 @@ if ($result_posts->num_rows > 0) {
   echo "</div>";
 } else {
   echo "Aucun post trouvé.";
+}
+
+// Like functionality
+if (isset($_POST['like'])) {
+  $post_id = $_POST['post_id'];
+  // Perform the like operation here
 }
 
 // Fermeture de la connexion

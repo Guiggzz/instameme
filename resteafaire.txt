@@ -1,16 +1,11 @@
 ● Page d’accueil (5 pts) :
 ○ Bouton like : 0,5 pt
-○ Formulaire de commentaires : 1 pt
 
 ● Page de visualisation utilisateur (1,5 pts) :
 ○ Bouton like : 0,5 pt
 
 ● Page de visualisation de contenu (4,5 pts) :
 ○ Bouton like : 0,5 pt
-○ Formulaire de commentaires : 1 pt
-
-● Page de création (2 pts) :
-○ Traitement du formulaire : 2 pts
 
 ● Page de partage (1 pt) :
 ○ Traitement du formulaire : 1 pt

@@ -12,16 +12,7 @@ use function date;
     <?php
     session_start();
     require_once 'header.php';
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "instameme";
-
-    $conn = new mysqli($servername, $username, $password, $database);
-
-    if ($conn->connect_error) {
-        die("La connexion a échoué : " . $conn->connect_error);
-    }
+    require_once 'db.php';
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pseudo = $_POST['username'];

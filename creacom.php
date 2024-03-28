@@ -7,16 +7,7 @@ if (!isset($_SESSION["connecte"]) || $_SESSION["connecte"] !== true) {
     exit;
 }
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "instameme";
-
-$conn = new mysqli($servername, $username, $password, $database);
-
-if ($conn->connect_error) {
-    die("La connexion a échoué : " . $conn->connect_error);
-}
+require_once 'db.php'; // Inclure le fichier de connexion à la base de données
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupérer les données du formulaire

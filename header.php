@@ -5,7 +5,7 @@ session_start();
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="UTF-8">
-    <title>Page d'accueil</title>
+    <title>Instameme</title>
     <link rel="shortcut icon" href="img\Instameme - Logo.png" type="image/x-icon">
 </head>
 
@@ -20,7 +20,7 @@ session_start();
                 <button type="submit">🔎</button>
             </form>
             <?php
-            if (isset($_SESSION["connecte"])) {
+            if (empty($_SESSION["connecte"])) {
                 if ($_SESSION["connecte"] == True) {
                     echo '<a href="Creerpos.php">Créer</a>';
                     echo '<a href="deco.php">Deconnexion</a>';
