@@ -10,7 +10,6 @@ session_start();
 </head>
 
 <body>
-
     <header>
         <div id="header">
             <a href="Page_accueil.php"><img src="img/icon.png" style="width: auto; height: 80px;"></a>
@@ -20,15 +19,13 @@ session_start();
                 <button type="submit">🔎</button>
             </form>
             <?php
-            if (empty($_SESSION["connecte"])) {
-                if ($_SESSION["connecte"] == True) {
-                    echo '<a href="Creerpos.php">Créer</a>';
-                    echo '<a href="deco.php">Deconnexion</a>';
-                    echo '<a href="user.php?user_id=' . $_SESSION['id_utilisateur'] . '">Profil</a>';
-                    echo isset($_SESSION['pseudo']) ? '<a>Bonjour ' . $_SESSION['pseudo'] . '</a>' : '';
-                } else {
-                    echo '<a href="connexion.php">Connexion</a>';
-                }
+            if (isset($_SESSION["connecte"]) && $_SESSION["connecte"] == True) {
+                echo '<a href="Creerpos.php">Créer</a>';
+                echo '<a href="deco.php">Deconnexion</a>';
+                echo '<a href="user.php?user_id=' . $_SESSION['id_utilisateur'] . '">Profil</a>';
+                echo isset($_SESSION['pseudo']) ? '<a>Bonjour ' . $_SESSION['pseudo'] . '</a>' : '';
+            } else {
+                echo '<a href="connexion.php">Connexion</a>';
             }
             ?>
         </div>
