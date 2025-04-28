@@ -20,7 +20,7 @@ Pour faire fonctionner InstaMeme, vous aurez besoin de :
 
 - PHP 7.4 ou plus récent
 - MySQL 5.7 ou plus récent
-- Serveur web (Apache, Nginx, etc.)
+- Serveur web (Apache, Nginx, etc.) ou Laragon
 - Navigateur web moderne
 - Gestionnaire de paquets Composer (optionnel)
 
