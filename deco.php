@@ -1,18 +1,22 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php
+session_start();
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
-</head>
+$_SESSION = array();
 
-<body>
-    <?php
-    session_start();
-    $_SESSION['connecte'] = False;
-    header("Location: Page_accueil.php");
-    ?>
-</body>
+if (ini_get("session.use_cookies")) {
+    $params = session_get_cookie_params();
+    setcookie(
+        session_name(),
+        '',
+        time() - 42000,
+        $params["path"],
+        $params["domain"],
+        $params["secure"],
+        $params["httponly"]
+    );
+}
 
-</html>
+session_destroy();
+
+header("Location: index.php");
+exit;

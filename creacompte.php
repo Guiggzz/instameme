@@ -10,7 +10,6 @@ use function date;
 
 <body>
     <?php
-    session_start();
     require_once 'header.php';
     require_once 'db.php';
 
@@ -28,7 +27,7 @@ use function date;
             $sql_insert = "INSERT INTO utilisateurs(pseudo, mot_de_passe, date_inscription) VALUES ('$pseudo', '$password', '$dateinscription')";
             if ($conn->query($sql_insert) === TRUE) {
                 $_SESSION['connecte'] = True;
-                header("Location: Page_accueil.php");
+                header("Location: index.php");
             } else {
                 echo "Erreur lors de la création du compte : " . $conn->error;
             }
