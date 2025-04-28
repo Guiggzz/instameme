@@ -1,4 +1,5 @@
 <?php
+// Vérifier si une session n'est pas déjà démarrée avant d'en démarrer une nouvelle
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -56,7 +57,8 @@ if (session_status() == PHP_SESSION_NONE) {
                             </svg>
                         </a>
 
-                        <div class="relative ml-2" x-data="{ open: false }">
+                        <!-- Menu déroulant utilisateur -->
+                        <div class="relative" x-data="{ open: false }">
                             <button @click="open = !open" class="flex items-center space-x-1 focus:outline-none">
                                 <span class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold text-sm">
                                     <?= isset($_SESSION['pseudo']) ? strtoupper(substr($_SESSION['pseudo'], 0, 1)) : 'U' ?>
@@ -66,7 +68,8 @@ if (session_status() == PHP_SESSION_NONE) {
                                 </svg>
                             </button>
 
-                            <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden" :class="{'block': open}">
+                            <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50"
+                                style="display: none;">
                                 <?php if (isset($_SESSION['pseudo'])): ?>
                                     <div class="px-4 py-2 text-sm text-gray-700 border-b border-gray-100">
                                         Bonjour, <?= $_SESSION['pseudo'] ?>

@@ -58,7 +58,7 @@ DROP TABLE IF EXISTS `utilisateurs`;
 CREATE TABLE `utilisateurs` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `pseudo` varchar(64) NOT NULL,
-  `mot_de_passe` varchar(32) NOT NULL, 
+  `mot_de_passe` varchar(255) NOT NULL, 
   `date_inscription` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `pseudo` (`pseudo`)
