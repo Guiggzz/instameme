@@ -29,7 +29,7 @@ Pour faire fonctionner InstaMeme, vous aurez besoin de :
 1. Clonez ce dépôt ou téléchargez-le sous forme de fichier ZIP et extrayez-le dans votre répertoire web (par exemple, `www` ou `htdocs`) :
 
 ```bash
-git clone https://github.com/votre-username/instameme.git
+git clone https://github.com/Guiggzz/instameme.git
 ```
 
 2. Créez deux dossiers s'ils n'existent pas déjà :
