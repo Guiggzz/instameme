@@ -137,7 +137,3 @@ Si vous ne pouvez pas vous connecter à la base de données :
 1. Vérifiez les informations de connexion dans `db.php`
 2. Assurez-vous que le service MySQL/MariaDB est en cours d'exécution
 3. Vérifiez que l'utilisateur a les permissions nécessaires sur la base `instameme`
-
-## Licence
-
-Ce projet est sous licence GNU General Public License v3.0 - voir le fichier [LICENSE](LICENSE) pour plus de détails.
